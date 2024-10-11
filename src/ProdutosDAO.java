@@ -35,8 +35,11 @@ public class ProdutosDAO {
             prep.setInt(2,produto.getValor());
             prep.setString(3,produto.getStatus());
             
-            prep.executeUpdate();
+            int rowsInserted = prep.executeUpdate();
             
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null,"Dados inseridos com sucesso!");
+            }
         }catch(SQLException ex){
             ex.getMessage();
         }
